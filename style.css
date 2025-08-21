@@ -1,35 +1,87 @@
 :root {
-  --brand: #006d77; /* utama */
-  --brand-2: #83c5be; /* aksen */
-  --ink: #0f172a; /* teks */
+  --brand: #1B263B;   /* deep navy */
+  --brand-2: #9A8CFF; /* aurora violet (tetep dipakai biar modern) */
+  --brand-3: #C9A44C; /* gold elegan */
+  --ink: #0B0B15;     /* teks elegan */
 }
 
 body {
   font-family: Poppins, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   color: var(--ink);
+  background: #ffffff;
 }
 
 .navbar-brand {
   font-weight: 700;
   letter-spacing: .3px;
+  color: var(--brand) !important;
 }
 
 .btn-brand {
-  background: var(--brand);
-  border-color: var(--brand);
+  background: var(--brand-3); /* tombol gold */
+  border-color: var(--brand-3);
+  color: #fff;
+  font-weight: 600;
 }
 
 .btn-brand:hover {
-  background: #025a63;
-  border-color: #025a63;
+  background: #b38b2c; /* gold lebih gelap */
+  border-color: #b38b2c;
 }
 
 .badge-brand {
-  background: var(--brand-2);
+  background: var(--brand-2); /* masih violet biar fresh */
+  color: #fff;
 }
 
 .hero {
-  background: linear-gradient(180deg, #e6f4f1 0%, #ffffff 60%);
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.55); /* overlay gelap */
+  z-index: 1;
+}
+
+.hero .container {
+  position: relative;
+  z-index: 2; /* biar teks di atas gambar */
+}
+
+
+.hero {
+  background: linear-gradient(180deg, #FFFBEA 0%, #ffffff 60%); /* hint gold lembut */
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 120px; /* bisa disesuaikan */
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #ffffff);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.room-card {
+  border: 1px solid rgba(201, 164, 76, 0.25); /* garis tipis gold */
 }
 
 .room-card img {
@@ -47,14 +99,15 @@ body {
 
 .section-title {
   font-weight: 700;
+  color: var(--brand-3); /* judul section gold */
 }
 
 .form-range::-webkit-slider-thumb {
-  background: var(--brand);
+  background: var(--brand-3);
 }
 
 .form-range::-moz-range-thumb {
-  background: var(--brand);
+  background: var(--brand-3);
 }
 
 .sticky-book {

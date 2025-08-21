@@ -1,7 +1,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Seruni Hotel — Clean & Modern</title>
+  <title>Aurora Hotel — Beyond Expectations</title>
   <meta name="description" content="Single-hotel website starter with rooms, booking form, and basic filtering. Built with Bootstrap 5 + vanilla JS." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,19 +11,22 @@
 </head>
 
 <body>
-  <!-- NAVBAR -->
+
+  <!-- Navbar -->
   <nav class="navbar navbar-expand-lg bg-white border-bottom sticky-top">
     <div class="container py-2">
       <a class="navbar-brand d-flex align-items-center gap-2" href="#">
-        <span class="badge badge-brand rounded-pill">SH</span> Seruni Hotel
+        <span class="badge badge-brand rounded-pill"></span> Aurora Hotel
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="nav">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
           <li class="nav-item"><a class="nav-link" href="#rooms">Rooms</a></li>
           <li class="nav-item"><a class="nav-link" href="#facilities">Facilities</a></li>
+          <li class="nav-item"><a class="nav-link" href="#facilities">Gallery</a></li>
           <li class="nav-item"><a class="nav-link" href="#location">Location</a></li>
         </ul>
         <a class="btn btn-brand ms-lg-3 text-white" href="#booking">Book Now</a>
@@ -31,211 +34,44 @@
     </div>
   </nav>
 
-  <!-- HERO -->
-  <header class="hero py-5 py-lg-6 border-bottom">
-    <div class="container">
-      <div class="row align-items-center g-4">
-        <div class="col-lg-6">
-          <span class="badge bg-light text-dark border">New • 2025 Website Starter</span>
-          <h1 class="display-5 fw-bold mt-3">Escape to <span style="color:var(--brand)">Seruni</span> — Your Cozy Stay in the City</h1>
-          <p class="lead mb-4">Clean Bootstrap starter for a single-hotel website. Includes rooms grid, booking form, and basic filtering. Easy to extend into a full booking system.</p>
-          <div class="d-flex gap-2">
-            <a class="btn btn-brand text-white" href="#booking">Start Booking</a>
-            <a class="btn btn-outline-secondary" href="#rooms">Browse Rooms</a>
-          </div>
-          <div class="mt-3"><span class="todo">TODO Tim Konten:</span> Ganti teks hero + upload foto hotel asli.</div>
-        </div>
-        <div class="col-lg-6">
-          <div class="rounded-2xl overflow-hidden shadow-soft">
-            <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=1600&auto=format&fit=crop" class="w-100" alt="Hotel lobby" />
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
+  <!-- Hero -->
+  <section class="hero d-flex align-items-center text-white">
+    <!-- Gambar background -->
+    <img src="img/hero.jpg" 
+        alt="Hotel Lobby" class="hero-bg">
 
-  <!-- ROOMS + SIDEBAR FILTER/BOOKING -->
-  <section id="rooms" class="py-5">
-    <div class="container">
-      <div class="row g-4">
-        <div class="col-lg-8">
-          <div class="d-flex align-items-end justify-content-between mb-3">
-            <div>
-              <h2 class="section-title mb-1">Rooms</h2>
-              <p class="text-secondary mb-0">Select a room and complete booking on the right.</p>
-            </div>
-            <div>
-              <button id="resetFilters" class="btn btn-sm btn-outline-secondary">Reset</button>
-            </div>
-          </div>
-
-          <div id="roomsGrid" class="row g-4">
-            <!-- Room cards will be injected via JS from ROOMS[] -->
-          </div>
-        </div>
-
-        <!-- Sidebar: Filters + Booking -->
-        <div class="col-lg-4">
-          <div class="sticky-book">
-            <div class="card shadow-soft mb-4">
-              <div class="card-body">
-                <h5 class="mb-3">Filter Rooms</h5>
-                <div class="mb-3">
-                  <label class="form-label">Type</label>
-                  <select id="filterType" class="form-select">
-                    <option value="">Any</option>
-                    <option>Standard</option>
-                    <option>Deluxe</option>
-                    <option>Suite</option>
-                  </select>
-                </div>
-                <div class="mb-3">
-                  <label class="form-label">Max Price (per night)</label>
-                  <input type="range" id="filterPrice" class="form-range" min="200000" max="2000000" step="50000" value="2000000" />
-                  <div class="d-flex justify-content-between small text-muted">
-                    <span>Rp200k</span>
-                    <span id="priceLabel">Rp2.000.000</span>
-                  </div>
-                </div>
-                <div class="mb-3">
-                  <label class="form-label">Guests</label>
-                  <input type="number" id="filterGuests" class="form-control" min="1" value="1" />
-                </div>
-                <button id="applyFilters" class="btn btn-outline-secondary w-100">Apply Filters</button>
-              </div>
-            </div>
-
-            <div id="booking" class="card shadow-soft">
-              <div class="card-body">
-                <h5 class="mb-3">Booking Details</h5>
-                <form id="bookingForm">
-                  <div class="mb-3">
-                    <label class="form-label">Selected Room</label>
-                    <input id="selectedRoom" class="form-control" placeholder="Choose a room card" readonly />
-                  </div>
-                  <div class="row g-3">
-                    <div class="col-6">
-                      <label class="form-label">Check-in</label>
-                      <input type="date" id="checkin" class="form-control" required />
-                    </div>
-                    <div class="col-6">
-                      <label class="form-label">Check-out</label>
-                      <input type="date" id="checkout" class="form-control" required />
-                    </div>
-                  </div>
-                  <div class="row g-3 mt-1">
-                    <div class="col-6">
-                      <label class="form-label">Guests</label>
-                      <input type="number" id="guests" class="form-control" min="1" value="1" required />
-                    </div>
-                    <div class="col-6">
-                      <label class="form-label">Name</label>
-                      <input type="text" id="fullname" class="form-control" required />
-                    </div>
-                  </div>
-                  <div class="mb-3 mt-3">
-                    <label class="form-label">Phone / WhatsApp</label>
-                    <input type="tel" id="phone" class="form-control" required />
-                  </div>
-                  <button class="btn btn-brand text-white w-100" type="submit">Confirm Booking</button>
-                  <div class="form-text mt-2">Demo only — data stored in your browser (LocalStorage). Replace with real backend later.</div>
-                </form>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
+    <div class="container text-center">
+      <h1 class="display-4 fw-bold">Aurora Hotel — A Touch of Luxury in Every Stay</h1>
+      <p class="lead mb-4">
+        Rasakan kenyamanan dan kemewahan dalam kamar modern dengan fasilitas premium serta layanan terbaik, hanya di Aurora Hotel.
+      </p>
+      <a class="btn btn-brand text-white px-4 py-2" href="#booking">Booking</a>
     </div>
   </section>
 
-  <!-- FACILITIES -->
-  <section id="facilities" class="py-5 bg-light border-top">
-    <div class="container">
-      <h2 class="section-title mb-4">Facilities</h2>
-      <div class="row g-4">
-        <div class="col-md-4">
-          <div class="card h-100 shadow-soft">
-            <div class="card-body">
-              <h5>Infinity Pool</h5>
-              <p class="mb-0">Open 6am–10pm with towel service and kids area.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card h-100 shadow-soft">
-            <div class="card-body">
-              <h5>All-day Dining</h5>
-              <p class="mb-0">Local & international menu with halal certification.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card h-100 shadow-soft">
-            <div class="card-body">
-              <h5>Event Hall</h5>
-              <p class="mb-0">Ballroom for weddings and corporate meetings.</p>
-            </div>
-          </div>
-        </div>
+  <!-- About -->
+  <section id="about" style="padding: 80px 0; background-color: #f9f9f9;">
+    <div style="max-width: 1100px; margin: auto; display: flex; align-items: center; gap: 40px; flex-wrap: wrap;">
+      
+      <!-- Gambar -->
+      <div style="flex: 1; min-width: 300px; box-shadow:#d4a056 ;">
+        <img src="img/about.jpg" alt="Aurora Hotel Lobby" style="width: 100%; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
       </div>
-      <div class="mt-3"><span class="todo">TODO Tim Fasilitas:</span> Ganti copy + tambahkan ikon/foto asli.</div>
-    </div>
-  </section>
 
-  <!-- LOCATION / MAP PLACEHOLDER -->
-  <section id="location" class="py-5">
-    <div class="container">
-      <div class="row g-4 align-items-center">
-        <div class="col-lg-6">
-          <h2 class="section-title mb-3">Location</h2>
-          <p>Jl. Mawar No. 123, Semarang, Indonesia</p>
-          <ul class="list-unstyled text-secondary">
-            <li>• 10 min to Tugu Muda</li>
-            <li>• 20 min to Ahmad Yani Airport (SRG)</li>
-            <li>• Near Simpang Lima & culinary spots</li>
-          </ul>
-          <div class="todo">TODO Tim Ops: Embed Google Maps iframe atau Leaflet.js.</div>
-        </div>
-        <div class="col-lg-6">
-          <div class="rounded-2xl overflow-hidden shadow-soft">
-            <img src="https://images.unsplash.com/photo-1502920917128-1aa500764cbd?q=80&w=1600&auto=format&fit=crop" class="w-100" alt="City view" />
-          </div>
-        </div>
+      <!-- Teks -->
+      <div style="flex: 1; min-width: 300px;">
+        <h2 style="font-size: 32px; margin-bottom: 20px; color: #222; font-weight: bold;">Tentang Aurora Hotel</h2>
+        <p style="font-size: 16px; line-height: 1.8; color: #444;">
+          Aurora Hotel menghadirkan pengalaman menginap yang tak terlupakan dengan perpaduan kenyamanan modern dan kemewahan. 
+          Terletak di lokasi strategis, kami menawarkan kamar elegan, fasilitas premium, dan pelayanan terbaik untuk setiap tamu.
+        </p>
+        <p style="font-size: 16px; line-height: 1.8; color: #444; margin-top: 10px;">
+          Nikmati suasana tenang, restoran berkelas, kolam renang yang luas, serta layanan ramah yang siap membuat masa tinggal Anda lebih istimewa.
+        </p>
+        <a href="#rooms" style="display: inline-block; margin-top: 20px; padding: 12px 24px; background-color: #d4a056; color: #fff; font-weight: bold; text-decoration: none; border-radius: 8px;">Jelajahi Kamar</a>
       </div>
     </div>
   </section>
-
-  <!-- FOOTER -->
-  <footer class="py-4 border-top bg-white">
-    <div class="container d-flex flex-column flex-lg-row align-items-center justify-content-between gap-2">
-      <div class="small">© <span id="y"></span> Seruni Hotel. All rights reserved.</div>
-      <div class="small text-secondary">Demo project • Team of 4: Frontend, Backend, Design, QA</div>
-    </div>
-  </footer>
-
-  <!-- ROOM TEMPLATE (rendered by JS) -->
-  <template id="roomTpl">
-    <div class="col-md-6">
-      <div class="card room-card h-100 shadow-soft rounded-2xl">
-        <img class="card-img-top" src="" alt="Room photo" />
-        <div class="card-body d-flex flex-column">
-          <div class="d-flex align-items-center justify-content-between mb-1">
-            <h5 class="card-title mb-0">Room Name</h5>
-            <span class="badge bg-light text-dark border room-type">Type</span>
-          </div>
-          <p class="card-text small text-secondary flex-grow-1">Short description…</p>
-          <div class="d-flex align-items-center justify-content-between">
-            <div>
-              <div class="fw-semibold">Rp<span class="room-price">0</span> <span class="text-secondary small">/night</span></div>
-              <div class="small text-secondary"><span class="room-size"></span> • <span class="room-guests"></span> guests</div>
-            </div>
-            <button class="btn btn-sm btn-brand text-white select-room">Select</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </template>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="main.js"></script>
