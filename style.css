@@ -1,0 +1,72 @@
+:root {
+  --brand: #006d77; /* utama */
+  --brand-2: #83c5be; /* aksen */
+  --ink: #0f172a; /* teks */
+}
+
+body {
+  font-family: Poppins, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: var(--ink);
+}
+
+.navbar-brand {
+  font-weight: 700;
+  letter-spacing: .3px;
+}
+
+.btn-brand {
+  background: var(--brand);
+  border-color: var(--brand);
+}
+
+.btn-brand:hover {
+  background: #025a63;
+  border-color: #025a63;
+}
+
+.badge-brand {
+  background: var(--brand-2);
+}
+
+.hero {
+  background: linear-gradient(180deg, #e6f4f1 0%, #ffffff 60%);
+}
+
+.room-card img {
+  object-fit: cover;
+  height: 220px;
+}
+
+.shadow-soft {
+  box-shadow: 0 10px 30px rgba(16, 24, 40, .08);
+}
+
+.rounded-2xl {
+  border-radius: 1.25rem;
+}
+
+.section-title {
+  font-weight: 700;
+}
+
+.form-range::-webkit-slider-thumb {
+  background: var(--brand);
+}
+
+.form-range::-moz-range-thumb {
+  background: var(--brand);
+}
+
+.sticky-book {
+  position: sticky;
+  top: 1rem;
+}
+
+/* Tiny helper for dev tags */
+.todo {
+  font-size: .85rem;
+  background: #fff3cd;
+  color: #8a6d3b;
+  padding: .35rem .5rem;
+  border-radius: .5rem;
+}
