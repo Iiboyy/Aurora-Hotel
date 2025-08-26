@@ -1,8 +1,8 @@
 :root {
-  --brand: #1B263B;   /* deep navy */
-  --brand-2: #9A8CFF; /* aurora violet (tetep dipakai biar modern) */
-  --brand-3: #C9A44C; /* gold elegan */
-  --ink: #0B0B15;     /* teks elegan */
+  --brand: #1B263B;
+  --brand-2: #9A8CFF;
+  --brand-3: #C9A44C;
+  --ink: #0B0B15;
 }
 
 body {
@@ -18,19 +18,19 @@ body {
 }
 
 .btn-brand {
-  background: var(--brand-3); /* tombol gold */
+  background: var(--brand-3);
   border-color: var(--brand-3);
   color: #fff;
   font-weight: 600;
 }
 
 .btn-brand:hover {
-  background: #b38b2c; /* gold lebih gelap */
+  background: #b38b2c;
   border-color: #b38b2c;
 }
 
 .badge-brand {
-  background: var(--brand-2); /* masih violet biar fresh */
+  background: var(--brand-2);
   color: #fff;
 }
 
@@ -38,6 +38,7 @@ body {
   height: 100vh;
   position: relative;
   overflow: hidden;
+  background: linear-gradient(180deg, #FFFBEA 0%, #ffffff 60%);
 }
 
 .hero-bg {
@@ -52,20 +53,13 @@ body {
   content: "";
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0, 0, 0, 0.55); /* overlay gelap */
+  background: rgba(0, 0, 0, 0.55);
   z-index: 1;
 }
 
 .hero .container {
   position: relative;
-  z-index: 2; /* biar teks di atas gambar */
-}
-
-
-.hero {
-  background: linear-gradient(180deg, #FFFBEA 0%, #ffffff 60%); /* hint gold lembut */
-  position: relative;
-  overflow: hidden;
+  z-index: 2;
 }
 
 .hero::after {
@@ -74,7 +68,7 @@ body {
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 120px; /* bisa disesuaikan */
+  height: 120px;
   background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #ffffff);
   z-index: 2;
   pointer-events: none;
@@ -95,6 +89,17 @@ body {
   margin-bottom: 40px;
   color: #222;
   font-weight: bold;
+  text-align: center;
+  position: relative;
+}
+
+.section-title:after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 3px;
+  background: #8a6d3b;
+  margin: 15px auto;
 }
 
 .rooms-grid {
@@ -164,8 +169,148 @@ body {
   background-color: #b8863b;
 }
 
+.facilities-section {
+  padding: 80px 0;
+  background-color: #f8f9fa;
+}
 
-/* Tiny helper for dev tags */
+.carousel-item {
+  height: 500px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-caption {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 25px;
+  border-radius: 10px;
+  max-width: 600px;
+  margin: 0 auto;
+  bottom: 50px;
+}
+
+.carousel-caption h3 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #fff;
+}
+
+.carousel-caption p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.facility-icon {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  color: #8a6d3b;
+  background: rgba(255, 255, 255, 0.9);
+  width: 70px;
+  height: 70px;
+  line-height: 70px;
+  border-radius: 50%;
+  margin: 0 auto 15px;
+}
+
+.facilities-section .card {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.facilities-section .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.facilities-section .card-body {
+  padding: 30px 20px;
+}
+
+.facilities-section .card h4 {
+  color: #000000;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.facilities-section .card p {
+  color: #000000;
+  line-height: 1.6;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: 50px;
+  height: 50px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.carousel-control-prev {
+  left: 15px;
+}
+
+.carousel-control-next {
+  right: 15px;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+  .carousel-item {
+    height: 400px;
+  }
+  
+  .carousel-caption {
+    bottom: 20px;
+    padding: 15px;
+  }
+  
+  .carousel-caption h3 {
+    font-size: 1.4rem;
+  }
+  
+  .carousel-caption p {
+    font-size: 0.9rem;
+  }
+  
+  .facility-icon {
+    font-size: 2rem;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+  }
+}
+
+@media (max-width: 576px) {
+  .facilities-section {
+    padding: 60px 0;
+  }
+  
+  .carousel-item {
+    height: 350px;
+  }
+  
+  .carousel-caption {
+    display: none !important;
+  }
+  
+  .section-title {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+  }
+}
+
 .todo {
   font-size: .85rem;
   background: #fff3cd;
