@@ -79,7 +79,6 @@
         });
     });
     
-    // Auto slide every 5 seconds
     setInterval(() => {
         const nextIndex = (currentIndex + 1) % slides.length;
         const currentSlide = slides[currentIndex];
@@ -90,5 +89,5 @@
         moveToSlide(track, currentSlide, nextSlide);
         updateIndicators(currentIndicator, nextIndicator);
         currentIndex = nextIndex;
-    }, 5000);
+    }, 10000);
 });
